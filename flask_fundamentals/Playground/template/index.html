@@ -1,29 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
 <style>
-.cont{
-display: flex;
+.container{
+    display: flex;
+    justify-content: center;
 }
-.cont div {
-    background-color: aquamarine;
-    margin: 10px;
-    border: 2px solid black;
-    width: 500px;
-    height: 500px;
+.box{
+    width: 250px;
+    height: 250px;
+    border: 1px solid black;
+    margin: 2%;
+}
+h1 {
+    color: black;
+    text-align: center;
 }
 </style>
+</head>
 <body>
-    {% for _ in range(0,num_box) %}
-    <div class="cont">
-        <div></div>
-        <div></div>
-        <div></div>
-        {% endfor %}
-    </div>
+
+<h1>Welcome</h1>
+<div class='container'>
+{% for _ in range (var) %}
+
+<div class='box', style= "background-color: {{color}}">
+</div>
+
+{% endfor %}
+</div>
 </body>
 </html>

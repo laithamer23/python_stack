@@ -1,12 +1,16 @@
-from flask import Flask, render_template  # added render_template!
-app = Flask(__name__)                     
-    
-@app.route('/play/<int:num_box>')                           
-def play(num_box):
-    return render_template('play.html,num_box=num_box')
-
-if __name__=='__main__':
-    app.run(debug=True)
+from flask import Flask, render_template 
+app = Flask(__name__)    
+@app.route('/play')          
+def playGround():
+    return render_template('index.html',var=3 , color='#9fc5f8')
+@app.route('/play/<num>')
+def multipleBoxes(num):
+    return render_template('index.html',var=int(num),color='#9fc5f8')
+@app.route('/play/<num>/<color>')
+def multipleBoxesColor(num,color):
+    return render_template('index.html',var=int(num),color=color )
+if __name__=="__main__":     
+    app.run(debug=True)   
   
                
 
