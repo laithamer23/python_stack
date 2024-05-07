@@ -29,7 +29,7 @@ muath.makeWhithdrawal(100)
 muath.makeWhithdrawal(50)
 muath.displayUserbalance("amount")
 
-# y.makedeposit(1000)
+# Tony.makedeposit(1000)
 # Tony.makeWhithdrawal(200)
 # Tony.makeWhithdrawal(200)
 # Tony.makeWhithdrawal(200)
