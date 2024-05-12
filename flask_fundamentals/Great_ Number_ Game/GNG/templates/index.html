@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {%if session['counter'] <= 4%}
+        <h1>welcome</h1>
+        <h2>guess the number between 1 and 100</h2>
+        {% if session['counter']>0 and session['reply'] == 'high' %}
+        <div class="red">
+            <h3>too high!!</h3>
+        </div>
+        {%elif session['counter']>0 and session['reply'] == 'low'%}
+        <div class="red">
+            <h3>too low!!</h3>
+        </div>
+        {% endif %}
+        {% if session['reply'] != 'win'%}
+        <form action="/process" method="post">
+            <input type="number" min=1 max=100 name="userinput">
+            <button>submit</button>
+        </form>
+        {% endif %}
+        {% if session['reply'] == 'win' %}
+        <div class="green">
+            <h2>you Won!!</h2>
+            <button><a href="/reset">play again</a></button>
+        </div>
+        <h3>it took you {{session['counter']}} trails to make the right guess</h3>
+        {% endif %}
+        {%else%}
+        <div class="lost">you lost!!!! hard luck</div>
+        <button><a href="/reset">try again</a></button>
+        {% endif %}
+</body>
+
+</html>
