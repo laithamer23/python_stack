@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <form action="counter">
+        <div class="head">
+            
+            <h1>your Gold</h1>
+            <div>
+                {{request.session.gold}}
+            </div>
+    </form>
+    
+    </div>
+   
+
+    <div class="center">
+
+        <form action="buttom">
+            {% csrf_token %}
+            <div class="box1">
+                <h1>Farm</h1>
+                <p>(earns 10-20 gold)</p>
+                <button type="submit" name="submit" id="submit">Find Gold</button>
+            </div>
+        </form>
+
+        <form action="buttom">
+            {% csrf_token %}
+            <div class="box1">
+                <h1>Cave</h1>
+                <p>(earns 10-20 gold)</p>
+                <button type="submit" name="submit" id="submit">Find Gold</button>
+            </div>
+        </form>
+
+        <form action="buttom">
+            {% csrf_token %}
+            <div class="box1">
+                <h1>House</h1>
+                <p>(earns 10-20 gold)</p>
+                <button type="submit" name="submit" id="submit">Find Gold</button>
+            </div>
+        </form>
+
+        <form action="buttom1">
+            {% csrf_token %}
+            <div class="box1">
+                <h1>Quest</h1>
+                <p>(earns/takes 0-50 gold)</p>
+                <button type="submit" name="submit" id="submit">Find Gold</button>
+            </div>
+        </form>
+    </div>
+    <h1>Activites :</h1>
+    <input type="text">
+</body>
+</html>
