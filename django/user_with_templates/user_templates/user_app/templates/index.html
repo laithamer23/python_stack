@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+</head>
+<style>
+  #customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+  </style>
+<body>
+
+            <table id="/Users" method="post">
+             
+
+                <h1>All Users</h1>
+                
+                <table id="customers">
+                  <tr>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                  </tr>
+                  {% for i in hat %}
+                  <tr>
+                    <td>{{i.firstname}}</td>
+                    <td>{{i.lastname}}</td>
+                    <td>{{i.email_address}}</td>
+                    <td>{{i.age}}</td>
+                  </tr>
+                  {% endfor %}
+                </table>
+
+            <h1>Add aUser</h1>
+            <form action='/add_users' method='post'>
+              {% csrf_token %}
+               First Name: <input type='text' name='fname'>
+               Email: <input type='text' name='email'>
+               Last Name: <input type='text' name='lname'>
+              Age: <input type='text' name='age'>
+              <button type='submit'>Add</button>
+          </form>
+      
+</body>
+</html>
+
+
