@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show</title>
+    <style>
+        #customers {
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        #customers td, #customers th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+        
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+        
+        #customers tr:hover {background-color: #ddd;}
+        
+        #customers th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #04AA6D;
+          color: white;
+        }
+        </style>
+</head>
+<body>
+    <table id="customers">
+        <tr>
+            <th>id</th>
+          <th>title</th>
+          <th>network</th>
+          <th>release Date</th>
+          <th>actions</th>
+          
+        </tr>
+        {% for i in show%}
+        <tr>
+          <td>{{i.id}}</td>
+          <td>{{i.title}}</td>
+          <td>{{i.network}}</td>
+          <td>{{i.release_date}}</td>
+          <td>
+            <a href= "/show/{{i.id}}">Show</a>
+            <a href="/show/delete/{{i.id}}">Delete</a>
+            <a href="/show/edit/{{i.id}}">Edit</a>
+          </td>
+        </tr>
+        {% endfor %}
+        <tr>
+    <a href="/show/add_new">add a new show</a>
+      </table>
+</body>
+</html>

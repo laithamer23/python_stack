@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+</head>
+<style>
+    #customers {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #04AA6D;
+      color: white;
+    }
+    </style>
+<body>
+    <table id="customers">
+        <tr>
+          <th>Movie Image</th>
+          <th>Movie Title </th>
+          <th>Movie Description</th>
+          <th>Movie Category</th>
+          <th>Movie Actors</th>
+        
+        </tr>
+        {% for movie in movies%}
+        <tr>
+        
+          <td><img src={{movie.url_image}} alt="" height="150px"></td>
+          <td>{{movie.title}}</td>
+          <td>{{movie.description}}</td>
+          <td>{{movie.category}}</td>
+       
+          <td>
+            {% for actor in movie.actors.all %}
+            <li>{{actor.name}}</li>
+            {%endfor%}
+          </td>
+         
+        </tr>
+        {%endfor%}
+      </table>
+
+
+      <table id="customers">
+        <tr>
+          <th>actor name</th>
+          <th>number of movie</th>
+        
+        
+        </tr>
+        {% for actor in actors%}
+        <tr>
+        
+          <td>{{actor.name}}</td>
+          <td>{{actor.movies.all|length}}</td>
+        </tr>
+        {%endfor%}
+      </table>
+</body>
+</html>

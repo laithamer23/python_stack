@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Ninja</title>
+</head>
+<body>
+    <div>
+        <form action='/add_dojo' method='post'>
+            {% csrf_token %}
+         <div class="left">
+            <h1>Add a Dojo</h1>
+            Name: <input type='text' name='name'>
+            City: <input type='text' name='city'>
+           State: <input type='text' name='state'>
+           <button type="submit" name="submit">Add</button>
+         </div>
+        </form>
+
+        <form action='/add_ninja' method='post'>
+            {% csrf_token %}
+        <div class="right">
+            <h1>Add a Ninja</h1>
+            First Name: <input type='text' name='fname'>
+            Last Name: <input type='text' name='lname'>
+            Dojo:<select name="cars" id="cars">-Seclect a Dojo</select>
+            <button type="submit" name="submit">Add</button>
+        </div>
+    </form>
+    </div>
+
+</body>
+</html>
