@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wall Assignment-advandced version</title>
+</head>
+<body>
+    <div>
+        <h1>CodingDojo Wall</h1>
+        welcome:{{request.session.first_name}}
+    </div>
+    <form action="/wall/{{request.session.userid}}" method="post">
+        {% csrf_token%}
+        
+        <label for="">Post a massege</label>
+        <input type="textarea" name="message">
+        <button type="submit">Post a messege</button>
+    </form>
+    {{% for i in messages %}}
+
+    {{i.message}} {{i.user.first_name}}
+    <form action="/create_comment/{{i.id}}/ {{request.session.userid}}">
+        <input type="textarea" name="comment">
+        <button type="submit">Post a comment</button>
+    </form>
+    {{% endfor %}}
+</body>
+</html>
