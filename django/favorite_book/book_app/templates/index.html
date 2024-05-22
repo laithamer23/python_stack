@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login amd Registartion</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>Registartion</h1>
+    <form action="registration" method="POST">
+    {% csrf_token%}
+          <label for="">First Name</label>
+          <input type="text" name="first_name">
+
+          <label for="">Last Nmae name</label>
+          <input type="text" name="last_name">
+
+          <label for="">Email</label>
+          <input type="email" name="email">
+
+          <label for="">Password</label>
+          <input type="password" name="password">
+
+          <label for=""> Confirm Password</label>
+          <input type="password" name="confirm_pw">
+
+          <button type="submit">Registar</button>
+    </form>
+
+    <form action="login" method="POST">
+        <h1>Log In</h1>
+
+        <label for="">Email</label>
+        <input type="text" name="email">
+
+        <label for="">Passwoed</label>
+        <input type="password" name="password">
+
+        <button type="submit">Login</button>
+    </form>
+
+    {% if messages %}
+<ul class="messages">    
+    {% for message in messages %}    
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+    {% endfor %}
+</ul>
+{% endif %}
+    
+</body>
+</html>
